@@ -36,6 +36,11 @@ const SideNavContent = () => {
                   Dashboard 2
                 </Link>
               </li>
+              <li>
+                <Link to="/dashboard3" className="side-nav-link-ref">
+                  Dashboard 3
+                </Link>
+              </li>
             </ul>
           </li>
 

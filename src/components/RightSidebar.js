@@ -19,19 +19,6 @@ class RightSideBar extends Component {
     }
 
     /**
-     * 
-     */
-    componentWillMount = () => {
-        document.addEventListener('mousedown', this.handleOtherClick, false);
-    }
-
-    /**
-     * 
-     */
-    componentWillUnmount = () => {
-        document.removeEventListener('mousedown', this.handleOtherClick, false);
-    }
-    /**
      * Handles the close
      */
     handleClose = (e) => {
