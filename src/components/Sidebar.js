@@ -21,7 +21,7 @@ const SideNavContent = () => {
             >
               <i className="fe-airplay"></i>
               <span className="badge badge-success badge-pill float-right">
-                2
+                3~
               </span>
               <span> Dashboards </span>
             </Link>
@@ -34,6 +34,11 @@ const SideNavContent = () => {
               <li>
                 <Link to="/dashboard2" className="side-nav-link-ref">
                   Dashboard 2
+                </Link>
+              </li>
+              <li>
+                <Link to="/dashboard3" className="side-nav-link-ref">
+                  Dashboard 3
                 </Link>
               </li>
             </ul>
@@ -93,16 +98,16 @@ class Sidebar extends Component {
   /**
    * Bind event
    */
-  componentWillMount = () => {
-    document.addEventListener("mousedown", this.handleOtherClick, false);
-  };
+  // componentWillMount = () => {
+  //   // document.addEventListener("mousedown", this.handleOtherClick, false);
+  // };
 
   /**
    *
    */
-  componentDidMount = () => {
-    this.initMenu();
-  };
+  // componentDidMount = () => {
+  //   this.initMenu();
+  // };
 
   /**
    * Component did update
@@ -127,9 +132,9 @@ class Sidebar extends Component {
   /**
    * Bind event
    */
-  componentWillUnmount = () => {
-    document.removeEventListener("mousedown", this.handleOtherClick, false);
-  };
+  // componentWillUnmount = () => {
+  //   document.removeEventListener("mousedown", this.handleOtherClick, false);
+  // };
 
   /**
    * Handle the click anywhere in doc
