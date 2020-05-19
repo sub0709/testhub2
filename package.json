@@ -4,10 +4,12 @@
   "private": true,
   "dependencies": {
     "availity-reactstrap-validation": "^2.5.1",
+    "axios": "^0.19.2",
     "bootstrap": "^4.2.1",
     "jwt-decode": "^2.2.0",
     "metismenujs": "^1.0.3",
     "node-sass": "^4.11.0",
+    "numeral": "^2.0.6",
     "react": "^16.7.0",
     "react-cookie": "^3.1.2",
     "react-dom": "^16.7.0",
