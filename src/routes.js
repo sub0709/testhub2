@@ -10,6 +10,7 @@ const Dashboard2 = React.lazy(() => import('./pages/dashboards/Dashboard2'));
 
 const Inbox = React.lazy(() => import('./pages/sample/Inbox'));
 const KanbanBoard = React.lazy(() => import('./pages/sample/KanbanBoard'));
+const Contacts = React.lazy(() => import('./pages/sample/Contacts'));
 
 // auth
 const Login = React.lazy(() => import('./pages/auth/Login'));
@@ -53,6 +54,7 @@ const routes = [
 	{ path: '/dashboard2', name: 'Dashboard2', component: Dashboard2, route: PrivateRoute, roles: ['Admin'] },
 	{ path: '/inbox', name: 'inbox', component: Inbox, route: PrivateRoute, roles: ['Admin'] },
 	{ path: '/kanbanboard', name: 'Kanbanboard', component: KanbanBoard, route: PrivateRoute, roles: ['Admin'] },
+	{ path: '/contacts', name: 'Inner', component: Contacts, route: PrivateRoute, roles: ['Admin'] },
   {
     path: "/",
     exact: true,

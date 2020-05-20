@@ -62,6 +62,11 @@ const SideNavContent = () => {
                   Kanban board
                 </Link>
               </li>
+              <li>
+                <Link to="/contacts" className="side-nav-link-ref">
+                  Contacts
+                </Link>
+              </li>
             </ul>
           </li>
 
