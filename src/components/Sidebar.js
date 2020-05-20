@@ -48,39 +48,28 @@ const SideNavContent = () => {
             <Link
               to="/"
               className="waves-effect has-dropdown"
-              aria-expanded="false"
+              aria-expanded="true"
             >
-              <i className="fe-folder-plus"></i>
-              <span> Multi Level </span>
-              <span className="menu-arrow"></span>
+              <i className="fe-airplay"></i>
+              <span className="badge badge-success badge-pill float-right">
+                2
+              </span>
+              <span> 샘플 </span>
             </Link>
-
-            <ul className="nav-second-level nav" aria-expanded="false">
+            <ul className="nav-second-level" aria-expanded="false">
               <li>
-                <Link to="/" className="side-nav-link-ref">
-                  Level 1.1
+                <Link to="/inbox" className="side-nav-link-ref">
+                  Inbox
                 </Link>
               </li>
               <li>
-                <Link to="/" className="has-dropdown">
-                  Level 1.2
-                  <span className="menu-arrow"></span>
+                <Link to="/kanbanboard" className="side-nav-link-ref">
+                  Kanban board
                 </Link>
-                <ul className="nav-third-level nav" aria-expanded="false">
-                  <li>
-                    <Link to="/" className="side-nav-link-ref">
-                      Level 2.1
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/" className="side-nav-link-ref">
-                      Level 2.2
-                    </Link>
-                  </li>
-                </ul>
               </li>
             </ul>
           </li>
+
         </ul>
       </div>
       <div className="clearfix"></div>
