@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 // import { connect } from "react-redux";
+
+import TheadComponent from '../../components/TheadComponent';
+import TbodyComponent from '../../components/TbodyComponent';
+
 import axios from 'axios';
-import numeral from 'numeral';
+
 
 class CardboxComponent extends Component {
   render() {
@@ -20,47 +24,8 @@ class CardboxComponent extends Component {
 
 }
 
-class TheadComponent extends Component {
-  render() {
-    return (
-      <thead className="thead-light">
-        <tr>
-          <th>Address</th>
-          <th>Balance</th>
-          <th>USD Value	</th>
-          <th>Percentage %</th>
-          <th>No of Txns</th>
-          <th>Address type</th>
-        </tr>
-      </thead>
-    )
-  }
-}
 
-class TbodyComponent extends Component {
-  render() {
-    
-    return (
-      this.state.dataList.map((data) => {
-        return(
-          <tr key={data.address}>
-            <td style={{color:'#1aaaba'}}>{data.address}</td>
 
-            {/* /* 소수점 존재하는만큼만 출력. 뒤에 불필요한 0제외 */}
-            <td>{numeral(data.balance).format('0,.0000')} ICX</td>
-
-            <td>{numeral(data.icxUsd).format('0,.000')} USD</td>
-
-            <td>{numeral(data.percentage).format('0.0000')}%</td>
-
-            <td>{numeral(data.txCount).format('0,0')}</td>
-
-            <td>{data.nodeType}</td>
-          </tr>  )
-      })
-    )
-  }
-}
 
 
 class Dashboard3 extends Component {
@@ -102,32 +67,11 @@ class Dashboard3 extends Component {
                 <table className="table table-borderless table-hover table-centered m-0">
                   <TheadComponent>
                   </TheadComponent>
+									<TbodyComponent
+										list={this.state.dataList}>
+										
+									</TbodyComponent>
 
-                  <tbody> 
-                        {
-                        this.state.dataList.map((data) => {
-
-                          // console.log(data.balance)
-                          // console.log(data, idx, arr[idx].balance.length)
-                          // console.log(numeral(data.balance).format('0.00000000'));
-                          return(
-                            <tr key={data.address}>
-                              <td style={{color:'#1aaaba'}}>{data.address}</td>
-
-                              {/* 소수점 존재하는만큼만 출력. 뒤에 불필요한 0제외 */}
-                              <td>{numeral(data.balance).format('0,.0000')} ICX</td>
-
-                              <td>{numeral(data.icxUsd).format('0,.000')} USD</td>
-
-                              <td>{numeral(data.percentage).format('0.0000')}%</td>
-
-                              <td>{numeral(data.txCount).format('0,0')}</td>
-
-                              <td>{data.nodeType}</td>
-                            </tr>
-                          );
-                        })}
-                  </tbody>
                 </table>
               </div>
             </div>
