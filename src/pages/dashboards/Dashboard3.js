@@ -7,26 +7,21 @@ import TbodyComponent from '../../components/TbodyComponent';
 import axios from 'axios';
 
 
-class CardboxComponent extends Component {
-  render() {
-    return (
-      <div className="card-box">
-        <h2 className="page-title">Addresses</h2>
-        <div className="table-responsive">
-          <table className="table table-borderless table-hover table-centered m-0">
-            <TheadComponent></TheadComponent>
-            <TbodyComponent></TbodyComponent>
-          </table>
-        </div>
-      </div>
-    )
-  }
-
-}
-
-
-
-
+// class CardboxComponent extends Component {
+//   render() {
+//     return (
+//       <div className="card-box">
+//         <h2 className="page-title">Addresses</h2>
+//         <div className="table-responsive">
+//           <table className="table table-borderless table-hover table-centered m-0">
+//             <TheadComponent></TheadComponent>
+//             <TbodyComponent></TbodyComponent>
+//           </table>
+//         </div>
+//       </div>
+//     )
+//   }
+// }
 
 class Dashboard3 extends Component {
     /* 초기 this.state를 지정하는 class constructor */

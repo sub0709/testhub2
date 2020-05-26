@@ -21,7 +21,7 @@ const SideNavContent = () => {
             >
               <i className="fe-airplay"></i>
               <span className="badge badge-success badge-pill float-right">
-                3~
+                5
               </span>
               <span> Dashboards </span>
             </Link>
@@ -41,6 +41,16 @@ const SideNavContent = () => {
                   Dashboard 3
                 </Link>
               </li>
+              <li>
+                <Link to="/inboxboard" className="side-nav-link-ref">
+                  Inbox Board
+                </Link>
+              </li>
+              <li>
+                <Link to="/kanbanboard" className="side-nav-link-ref">
+                  Kanban Board
+                </Link>
+              </li>
             </ul>
           </li>
 
@@ -52,7 +62,7 @@ const SideNavContent = () => {
             >
               <i className="fe-airplay"></i>
               <span className="badge badge-success badge-pill float-right">
-                2
+                3
               </span>
               <span> 샘플 </span>
             </Link>
@@ -63,7 +73,7 @@ const SideNavContent = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/kanbanboard" className="side-nav-link-ref">
+                <Link to="/kanban" className="side-nav-link-ref">
                   Kanban board
                 </Link>
               </li>

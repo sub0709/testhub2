@@ -32,6 +32,7 @@ class TbodyComponent extends Component {
     
     return (
       this.props.list.map((data) => {
+					// eslint-disable-next-line no-lone-blocks
 					{
 						return this.makeTr(data)
 					}
