@@ -51,6 +51,11 @@ const SideNavContent = () => {
                   Inboxes
                 </Link>
               </li>
+              <li>
+                <Link to="/Contacts2" className="side-nav-link-ref">
+                  Contacts2
+                </Link>
+              </li>
             </ul>
           </li>
 
