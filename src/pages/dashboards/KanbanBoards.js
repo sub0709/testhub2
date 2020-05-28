@@ -1,12 +1,40 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import KanbanCardBoardItems from "../../components/KanbanCardBoardItems";
 
-class KanbanBoard extends Component {
+class KanbanBoards extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+
+		const list = [
+			{
+        level     : 'High',
+        color     : 'badge bg-soft-danger text-danger float-right',
+				topic     : 'iOS App home page',
+				desc      : 'There are many variations of passages of Lorem Ipsum available.',
+        calendar  : 'Oct 16, 2018',
+      },
+      {
+        level     : 'Low',
+        color     : 'badge bg-soft-success text-success float-right',
+				topic     : 'Topnav layout design',
+				desc      : 'Many desktop publishing packages and web page.',
+        calendar  : 'Nov 22, 2018',
+      },
+      {
+        level     : 'High',
+        color     : 'badge bg-soft-danger text-danger float-right',
+				topic     : 'Invite user to a project',
+				desc      : 'If you are going to use a passage of Lorem Ipsum.',
+        calendar  : 'Oct 15, 2018',
+      },
+    ];
+    
+    this.state = { 
+      list : list
+    };
   }
-  
+
   render() {
     return (
       <React.Fragment>
@@ -64,118 +92,23 @@ class KanbanBoard extends Component {
                 </p>
 
                 <ul className="sortable-list taskList list-unstyled" id="upcoming">
-                  <li id="task1">
-                    <span className="badge bg-soft-danger text-danger float-right">
-                      High
-                    </span>
-                    <h5 className="mt-0">
-                      <a href="#none" className="text-dark">
-                        iOS App home page
-                      </a>
-                    </h5>
-                    <div className="checkbox checkbox-blue mb-2 checkbox-single float-right">
-                      <input type="checkbox" />
-                      <label></label>
-                    </div>
-                    <p>
-                      There are many variations of passages of Lorem Ipsum
-                      available.
-                    </p>
-                    <div className="clearfix"></div>
-                    <div className="row">
-                      <div className="col">
-                        <p className="font-13 mt-2 mb-0">
-                          <i className="mdi mdi-calendar"></i> Oct 16, 2018
-                        </p>
-                      </div>
-                      <div className="col-auto">
-                        <div className="text-right">
-                          <a href="#none" className="text-muted">
-                            <img
-                              src="assets/images/users/user-1.jpg"
-                              alt="task-user"
-                              className="avatar-sm img-thumbnail rounded-circle"
-                            />
-                          </a>
-                          <a href="#none" className="text-muted">
-                            <img
-                              src="assets/images/users/user-3.jpg"
-                              alt="task-user"
-                              className="avatar-sm img-thumbnail rounded-circle"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li id="task2">
-                    <span className="badge bg-soft-success text-success float-right">
-                      Low
-                    </span>
-                    <h5 className="mt-0">
-                      <a href="#none" className="text-dark">
-                        Topnav layout design
-                      </a>
-                    </h5>
-                    <div className="checkbox checkbox-blue mb-2 checkbox-single float-right">
-                      <input type="checkbox" />
-                      <label></label>
-                    </div>
-                    <p>Many desktop publishing packages and web page.</p>
-                    <div className="clearfix"></div>
-                    <div className="row">
-                      <div className="col">
-                        <p className="font-13 mt-2 mb-0">
-                          <i className="mdi mdi-calendar"></i> Nov 22, 2018
-                        </p>
-                      </div>
-                      <div className="col-auto">
-                        <div className="text-right">
-                          <a href="#none" className="text-muted">
-                            <img
-                              src="assets/images/users/user-2.jpg"
-                              alt="task-user"
-                              className="avatar-sm img-thumbnail rounded-circle"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li id="task3">
-                    <span className="badge bg-soft-danger text-danger float-right">
-                      High
-                    </span>
-                    <h5 className="mt-0">
-                      <a href="#none" className="text-dark">
-                        Invite user to a project
-                      </a>
-                    </h5>
-                    <div className="checkbox checkbox-blue mb-2 checkbox-single float-right">
-                      <input type="checkbox" />
-                      <label></label>
-                    </div>
-                    <p>If you are going to use a passage of Lorem Ipsum.</p>
-                    <div className="clearfix"></div>
-                    <div className="row">
-                      <div className="col">
-                        <p className="font-13 mt-2 mb-0">
-                          <i className="mdi mdi-calendar"></i> Oct 15, 2018
-                        </p>
-                      </div>
-                      <div className="col-auto">
-                        <div className="text-right">
-                          <a href="#none" className="text-muted">
-                            <img
-                              src="assets/images/users/user-5.jpg"
-                              alt="task-user"
-                              className="avatar-sm img-thumbnail rounded-circle"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
+
+                {/* <KanbanCardBoardItems /> */}
+
+                {this.state.list.map((item, idx) => {
+                  return (
+                      <KanbanCardBoardItems
+                        key   = {idx}
+                        level = {item.level}
+                        color = {item.color}
+                        topic = {item.topic}
+                        desc  = {item.desc}
+                        calendar  = {item.calendar}
+                      >
+                      </KanbanCardBoardItems>
+                  );
+                })}
+
                   <li className="task-info" id="task4">
                     <span className="badge bg-soft-warning text-warning float-right">
                       Medium
@@ -610,4 +543,4 @@ class KanbanBoard extends Component {
   }
 }
 
-export default connect()(KanbanBoard);
+export default connect()(KanbanBoards);

@@ -41,6 +41,16 @@ const SideNavContent = () => {
                   Dashboard 3
                 </Link>
               </li>
+              <li>
+                <Link to="/kanbanboards" className="side-nav-link-ref">
+                  Kanban boards
+                </Link>
+              </li>
+              <li>
+                <Link to="/Inboxes" className="side-nav-link-ref">
+                  Inboxes
+                </Link>
+              </li>
             </ul>
           </li>
 

@@ -1,10 +1,53 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import InboxItems from "../../components/InboxItems";
 
-class Inbox extends Component {
+class Inboxes extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+		const list = [
+			{
+        readf   : 'unread',
+        title   : 'Lucas Kriebel (via Twitter)',
+        subject : `Lucas Kriebel (@LucasKriebel) has sent you a direct
+        message on Twitter!`,
+				teaser  : `@LucasKriebel - Very cool :) Nicklas, You have a
+        new direct message.`,
+				date    : '11:49 am',
+      },
+      {
+        readf   : '',
+        title   : 'Randy, me (5)',
+        subject : `Last pic over my village`,
+				teaser  : `Yeah i'd like that! Do you remember the video you
+        showed me of your train ride between Colombo and
+        Kandy? The one with the mountain view? I would
+        love to see that one again!`,
+				date    : '5:01 am',
+      },
+      {
+        readf   : '',
+        title   : 'Andrew Zimmer',
+        subject : `Mochila Beta: Subscription Confirmed`,
+				teaser  : `You've been confirmed! Welcome to the ruling class
+        of the inbox. For your records, here is a copy of
+        the information you submitted to us...`,
+				date    : 'Mar 8',
+      },
+      {
+        readf   : 'unread',
+        title   : 'Infinity HR',
+        subject : `Sveriges Hetaste sommarjobb`,
+				teaser  : `Hej Nicklas Sandell! Vi vill bjuda in dig till
+        "First tour 2014", ett rekryteringsevent som
+        erbjuder jobb pa 16 semesterorter iSverige.`,
+				date    : 'Mar 8',
+      },
+    ];
+    
+    this.state = { 
+      list : list
+    };
   }
 
   render() {
@@ -202,101 +245,22 @@ class Inbox extends Component {
 
                   <div className="mt-3">
                     <ul className="message-list">
-                      <li className="unread">
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <input type="checkbox" id="chk1" />
-                            <label htmlFor="chk1" className="toggle"></label>
-                          </div>
-                          <span className="star-toggle far fa-star text-warning"></span>
-                          <a href="#none" className="title">
-                            Lucas Kriebel (via Twitter)
-                          </a>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <a href="#none" className="subject">
-                            Lucas Kriebel (@LucasKriebel) has sent you a direct
-                            message on Twitter! &nbsp;&ndash;&nbsp;
-                            <span className="teaser">
-                              @LucasKriebel - Very cool :) Nicklas, You have a
-                              new direct message.
-                            </span>
-                          </a>
-                          <div className="date">11:49 am</div>
-                        </div>
-                      </li>
+                      {/* <InboxItems /> */}
 
-                      <li>
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <input type="checkbox" id="chk3" />
-                            <label htmlFor="chk3" className="toggle"></label>
-                          </div>
-                          <span className="star-toggle far fa-star"></span>
-                          <a href="#none" className="title">
-                            Randy, me (5)
-                          </a>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <a href="#none" className="subject">
-                            Last pic over my village &nbsp;&ndash;&nbsp;
-                            <span className="teaser">
-                              Yeah i'd like that! Do you remember the video you
-                              showed me of your train ride between Colombo and
-                              Kandy? The one with the mountain view? I would
-                              love to see that one again!
-                            </span>
-                          </a>
-                          <div className="date">5:01 am</div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <input type="checkbox" id="chk4" />
-                            <label htmlFor="chk4" className="toggle"></label>
-                          </div>
-                          <span className="star-toggle far fa-star text-warning"></span>
-                          <a href="#none" className="title">
-                            Andrew Zimmer
-                          </a>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <a href="#none" className="subject">
-                            Mochila Beta: Subscription Confirmed
-                            &nbsp;&ndash;&nbsp;{" "}
-                            <span className="teaser">
-                              You've been confirmed! Welcome to the ruling class
-                              of the inbox. For your records, here is a copy of
-                              the information you submitted to us...
-                            </span>
-                          </a>
-                          <div className="date">Mar 8</div>
-                        </div>
-                      </li>
-                      <li className="unread">
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <input type="checkbox" id="chk5" />
-                            <label htmlFor="chk5" className="toggle"></label>
-                          </div>
-                          <span className="star-toggle far fa-star"></span>
-                          <a href="#none" className="title">
-                            Infinity HR
-                          </a>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <a href="#none" className="subject">
-                            Sveriges Hetaste sommarjobb &nbsp;&ndash;&nbsp;
-                            <span className="teaser">
-                              Hej Nicklas Sandell! Vi vill bjuda in dig till
-                              "First tour 2014", ett rekryteringsevent som
-                              erbjuder jobb pa 16 semesterorter iSverige.
-                            </span>
-                          </a>
-                          <div className="date">Mar 8</div>
-                        </div>
-                      </li>
+                      {this.state.list.map((item, idx) => {
+                        return (
+                            <InboxItems
+                              key     = {idx}
+                              readf   = {item.readf}
+                              title   = {item.title}
+                              subject = {item.subject}
+                              teaser  = {item.teaser}
+                              date    = {item.date}
+                            >
+                            </InboxItems>
+                        );
+                      })}
+
                       <li>
                         <div className="col-mail col-mail-1">
                           <div className="checkbox-wrapper-mail">
@@ -659,4 +623,4 @@ class Inbox extends Component {
   }
 }
 
-export default connect()(Inbox);
+export default connect()(Inboxes);
