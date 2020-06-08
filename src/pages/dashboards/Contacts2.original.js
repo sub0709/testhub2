@@ -50,19 +50,14 @@ class Contacts2 extends Component {
 		];
 
 		this.state = {
-      list : list,
-      name : '',
-			selectedStatus : '',
+			list : list,
+			selectedStatus : '1',
 			showAddModal : false,
 		};
 	}
 	
 	changeHandler(e) {
-    this.setState({
-			sgubn : e.target.value
-		});
-    console.log(e.target.value)
-    console.log(this.state.sgubn)
+
 	}
 
 	toggleAddModal(e) {
@@ -133,8 +128,6 @@ class Contacts2 extends Component {
                           className="form-control"
                           id="inputPassword2"
                           placeholder="Search..."
-                          // onChange={(e) => console.log(e.target.value)}
-                          onChange={(e) => {this.setState({name : e.target.value})}}
                         />
                       </div>
                       <div className="form-group mx-sm-3">
@@ -177,10 +170,7 @@ class Contacts2 extends Component {
           </div>
 
           <div className="row">
-            {this.state.list.filter(item => {
-              return item.name.toLowerCase().indexOf(this.state.name) >= 0
-            }).map(item => {
-              console.log(item, this.state.name);
+						{this.state.list.map(item => {
 							return (
 								<div key={item.name} className="col-lg-4">
 									<NameCard
