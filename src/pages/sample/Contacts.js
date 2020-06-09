@@ -6,16 +6,16 @@ import AddModal from './AddModal';
 
 class Contacts extends Component {
   constructor(props) {
-		super(props);
+    super(props);
 
 		this.changeHandler = this.changeHandler.bind(this);
 		this.toggleAddModal = this.toggleAddModal.bind(this);
 		this.makeButton = this.makeButton.bind(this);
 
-		const list = [
+		let list = [
 			{
 				img : 'user-3',
-				name : 'Freddie J. Plourde',
+        name : 'Freddie J. Plourde',
 				job : '@Founder',
 				email : 'websitename.com',
 				hasAuth : true,
@@ -48,18 +48,57 @@ class Contacts extends Component {
 				email : 'website.com',
 				hasAuth : true,
 			},
-		];
+    ];
+
+    // let searchArr = [{
+    //   img : '',
+    //   name : '',
+    //   job : '',
+    //   email : '',
+    //   hasAuth : true,
+    // }]
+    // console.log(searchArr);
 
 		this.state = {
-			list : list,
+      list : list,
+      searchArr : list,
 			selectedStatus : '1',
-			showAddModal : false,
-		};
-	}
-	
-	changeHandler(e) {
+      showAddModal : false,
+    };
 
 	}
+	
+	changeHandler = (e) => {
+
+    let name = e.target.value;
+    console.log(name);
+
+    this.searchCard(this.state.list, name);
+
+  }
+
+  searchCard = (list, contact) => {
+    let tempArr = [];
+    list.map((item) => {
+      // console.log(item);
+
+      const itemLowerCase = item.name.toLowerCase();
+      const contactLowerCase = contact.toLowerCase();
+      // console.log("리스트 이름: ", itemLowerCase, "검색한 이름: ",contactLowerCase);
+
+      if (itemLowerCase.indexOf(contactLowerCase) > -1) {
+
+        console.log("######일치#####: ", itemLowerCase, "검색한 이름: ", contactLowerCase);
+
+        tempArr.push(item)
+        console.log(tempArr);
+      }
+
+    })
+    this.setState({
+      searchArr : tempArr
+    })
+  }
 
 	toggleAddModal(e) {
 		if(e) {
@@ -92,6 +131,7 @@ class Contacts extends Component {
 	}
 
   render() {
+
     return (
       <React.Fragment>
         <div className="container-fluid">
@@ -128,7 +168,8 @@ class Contacts extends Component {
                           type="search"
                           className="form-control"
                           id="inputPassword2"
-                          placeholder="Search..."
+                          placeholder="이름을 검색하세요."
+                          onChange={this.changeHandler}
                         />
                       </div>
                       <div className="form-group mx-sm-3">
@@ -171,22 +212,23 @@ class Contacts extends Component {
           </div>
 
           <div className="row">
-						{this.state.list.map(item => {
+						{this.state.searchArr.map(item => {
 							return (
 								<div key={item.name} className="col-lg-4">
 									<NameCard
-										imgurl={require(`../../assets/images/users/${item.img}.jpg`)}
-										name={item.name}
+                    imgurl={require(`../../assets/images/users/${item.img}.jpg`)}
+                    name={item.name}
 										job={item.job}
-										email={item.email}
+                    email={item.email}
 									>
 										{
 											this.makeButton(item.hasAuth)
 										}
 									</NameCard>
 								</div>
-							);
+              );
 						})}
+            
           </div>
 
 

@@ -5,60 +5,13 @@ class KanbanCardboxComponent extends Component {
     constructor(props) {
         super(props);
 
-        const kanbanTaskList = [
-            {
-                taskWarn : 'Low',
-                title : 'Brand logo design',
-                content : 'Various versions have evolved over the years, sometimes by accident.',
-                calendar : 'Nov 29, 2020',
-                img : 'user-1',
-                alt : 'task-user-1',
-            },
-            {
-                taskWarn : 'Medium',
-                title : 'Improve animation loader',
-                content : 'A handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.',
-                calendar : 'May 5, 2014',
-                img : 'user-7',
-                alt : 'task-user-7',
-            },
-            {
-                taskWarn : 'High',
-                title : 'Dashboard Re-design',
-                content : 'There are many variations of passages of Lorem Ipsum available.',
-                calendar : 'Oct 16, 2017',
-                img : 'user-8',
-                alt : 'task-user-8',
-            },
-            {
-                taskWarn : 'Low',
-                title : 'iOS App home page',
-                content : 'There are many variations of passages of Lorem Ipsum available.',
-                calendar : 'Feb 13, 2018',
-                img : 'user-9',
-                alt : 'task-user-9',
-            },
-            {
-                taskWarn : 'Low',
-                title : 'Enable analytics tracking',
-                content : 'It has roots in a piece of classical Latin literature from 45 BC.',
-                calendar : 'Jan 7, 2016',
-                img : 'user-10',
-                alt : 'task-user-10',
-            },
-            {
-                taskWarn : 'High',
-                title : 'Kanban board design',
-                content : 'A handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.',
-                calendar : 'Aug 22, 2019',
-                img : 'user-11',
-                alt : 'task-user-11',
-            }
-        ];
-
+        //this.props.asdfasdf
         this.state = {
-            kanbanTaskList : kanbanTaskList
+//           kanbanTaskList : this.props.data,
+ //          status : this.props.status,
         };
+
+        console.log(this.props.data);
     }
 
     render() {
@@ -96,7 +49,7 @@ class KanbanCardboxComponent extends Component {
                     </p>
 
                     <ul className="sortable-list taskList list-unstyled" id={this.props.id}>
-                        {this.state.kanbanTaskList.map((data, idx) => {
+                        {this.props.data.map((data, idx) => {
                             return(
                                 <KanbanTaskComponent 
                                     key={idx}
