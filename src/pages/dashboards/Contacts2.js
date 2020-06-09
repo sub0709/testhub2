@@ -51,7 +51,9 @@ class Contacts2 extends Component {
 
 		this.state = {
       list : list,
+      all  : '',
       name : '',
+      post : '',
 			selectedStatus : '',
 			showAddModal : false,
 		};
@@ -59,10 +61,9 @@ class Contacts2 extends Component {
 	
 	changeHandler(e) {
     this.setState({
-			sgubn : e.target.value
+      selectedStatus : e.target.value
 		});
-    console.log(e.target.value)
-    console.log(this.state.sgubn)
+    console.log("selectedStatus : ", e.target.value);
 	}
 
 	toggleAddModal(e) {
@@ -96,6 +97,7 @@ class Contacts2 extends Component {
 	}
 
   render() {
+    console.log(this.state.selectedStatus);
     return (
       <React.Fragment>
         <div className="container-fluid">
@@ -134,7 +136,11 @@ class Contacts2 extends Component {
                           id="inputPassword2"
                           placeholder="Search..."
                           // onChange={(e) => console.log(e.target.value)}
-                          onChange={(e) => {this.setState({name : e.target.value})}}
+                          onChange={(e) => {
+                            console.log(e.target.value);
+                            this.setState({name : e.target.value})
+                            }
+                          }
                         />
                       </div>
                       <div className="form-group mx-sm-3">
@@ -176,7 +182,12 @@ class Contacts2 extends Component {
             </div>
           </div>
 
+
+
           <div className="row">
+            {/* {console.log('te', this.state.selectedStatus)}
+            // if (this.state.selectedStatus = '1') */}
+            {console.log(this.state.selectedStatus)}
             {this.state.list.filter(item => {
               return item.name.toLowerCase().indexOf(this.state.name) >= 0
             }).map(item => {
