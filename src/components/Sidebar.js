@@ -67,6 +67,11 @@ const SideNavContent = () => {
                   Contacts
                 </Link>
               </li>
+              <li>
+                <Link to="/modal" className="side-nav-link-ref">
+                  Modal
+                </Link>
+              </li>
             </ul>
           </li>
 
