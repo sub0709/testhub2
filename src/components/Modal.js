@@ -7,8 +7,8 @@ class Modal extends Component {
     return (
 			<Bs4Modal visible={this.props.visible}>
 				<div className="modal-header">
-					<h5 className="modal-title">{this.props.title}</h5>
-					<button type="button" className="close" onClick={() => this.props.onClose()}>
+					<h5 className="modal-title"> {this.props.title}</h5>
+					<button type="button" className="close" onClick={this.props.onClose}>
 						<span aria-hidden="true" >&times;</span>
 					</button>
 				</div>
@@ -16,7 +16,7 @@ class Modal extends Component {
           {this.props.body}
 				</div>
 				<div className="modal-footer">
-					<button type="button" className="btn btn-primary">
+					<button type="button" className="btn btn-primary"> 
 						{this.props.children}
 					</button>
 				</div>
